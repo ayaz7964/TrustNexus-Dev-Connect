@@ -14,7 +14,7 @@ export default function UserDashboard() {
   const handleSidebarClick = (section) => {
     if (section === "Logout") {
       dispatch({ type: "LOGOUT" });
-      navigate("/section/userLogin");
+      navigate("/");
     } else {
       setActive(section);
     }

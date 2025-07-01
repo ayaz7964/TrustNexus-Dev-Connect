@@ -14,7 +14,7 @@ export default function DevDashboard() {
   const handleSidebarClick = (section) => {
     if (section === "Logout") {
       dispatch({ type: "LOGOUT" });
-      navigate("/section/developerLogin");
+      navigate("/");
     } else {
       setActive(section);
     }
