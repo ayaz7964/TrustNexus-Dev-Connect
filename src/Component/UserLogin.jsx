@@ -2,17 +2,41 @@ import React from "react";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Css/DeveloperLogin.css"; // Assuming you have a CSS file for styling
+import "./Css/DeveloperLogin.css";
+import { useLogin } from "../context/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 export default function userLogin() {
   const [form, setForm] = useState({ identifier: "", password: "" });
+  const { state, dispatch } = useLogin();
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    // Clear error when user starts typing
     if (error) setError("");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    // Find user by email or username
+    const user = state.users.find(
+      (u) =>
+        (u.email === form.identifier || u.Username === form.identifier) &&
+        u.password === form.password
+    );
+
+    if (user) {
+      dispatch({ type: "LOGIN", payload: user });
+      navigate("/UserDashboard"); // Redirect to dashboard
+    } else {
+      setError("Invalid credentials");
+      setLoading(false);
+    }
   };
   return (
     <div className="login-wrapper">
@@ -22,7 +46,7 @@ export default function userLogin() {
           <p>Sign in to your account to continue</p>
         </div>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleSubmit}>
           <div className="input-group">
             <label htmlFor="identifier">Email or Username</label>
             <input
@@ -136,7 +160,7 @@ export default function userLogin() {
         <div className="login-footer">
           <p className="signup-redirect">
             {/* icons of facebook google and twwiter and github */}
-            Don't have an account? <Link to="/signup">Sign Up</Link>
+            Don't have an account? <Link to="/section/usersignup">Sign Up</Link>
           </p>
         </div>
       </div>
