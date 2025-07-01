@@ -76,6 +76,7 @@ body {
   animation: fadeInUp 0.6s ease-out;
 }
 
+
 .login-card p {
   margin: 0;
   color: #6b7280;
@@ -254,6 +255,36 @@ body {
   animation: spin 1s linear infinite;
   margin-right: 10px;
 }
+
+.social-login-icons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 18px;
+  margin-top: 8px;
+}
+.social-login-icons .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f4f8fb;
+  color: #444;
+  font-size: 1.5rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(9,74,171,0.08);
+  border: none;
+}
+.social-login-icons .icon:hover {
+  background: #094aab;
+  color: #fff;
+}
+.social-login-icons .facebook:hover { background: #1877f3; }
+.social-login-icons .google:hover { background: #ea4335; }
+.social-login-icons .twitter:hover { background: #1da1f2; }
+.social-login-icons .github:hover { background: #24292f; }
 
 /* Animations */
 @keyframes fadeInUp {

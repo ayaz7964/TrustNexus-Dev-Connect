@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Css/DeveloperLogin.css"; // Assuming you have a CSS file for styling
 
-export default function DeveloperLogin() {
+export default function userLogin() {
   const [form, setForm] = useState({ identifier: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);

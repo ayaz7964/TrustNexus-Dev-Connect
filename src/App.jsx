@@ -3,7 +3,8 @@ import LandingPage from './Component/LandingPage'
 import {Route , Routes} from 'react-router-dom'
 
 import Selection from './Component/Selection'; 
-import DeveloperLogin from './Component/DeveloperLogin';'./Component/DeveloperLogin'
+import DeveloperLogin from './Component/DeveloperLogin';
+import UserLogin from './Component/UserLogin';
 
 export default function App() {
   return (
@@ -12,8 +13,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/section" element={<Selection/>} />
-        <Route path="/section/developer" element={<DeveloperLogin/>} />
-        <Route path="/section/user" element={<h1>User Section</h1>} />
+        <Route path="/section/developerLogin" element={<DeveloperLogin/>} />
+        <Route path="/section/userLogin" element={<UserLogin/>} />
       </Routes>
 
     </div>
